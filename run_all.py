@@ -4,6 +4,8 @@ from train_sam import train_sam
 from sam_medical_analysis.experiments.task1_representations import run_task1
 from sam_medical_analysis.experiments.task2_separation import run_task2
 from sam_medical_analysis.experiments.task3_ablation import run_task3
+from sam_medical_analysis.experiments.task5_visualization import run_task5
+from sam_medical_analysis.experiments.task6_prompt_sensitivity import run_task6
 
 def main():
     print("Starting SAM Medical Analysis & Training Pipeline...")
@@ -33,6 +35,14 @@ def main():
         # Phase 4: Ablation Study
         print("\n>>> PHASE 4: Attention Head Ablation")
         run_task3(config)
+
+        # Phase 5: Feature Activation Visualization
+        print("\n>>> PHASE 5: Feature Activation Map Visualization")
+        run_task5(config)
+
+        # Phase 6: Prompt Sensitivity Analysis
+        print("\n>>> PHASE 6: Prompt Sensitivity Analysis")
+        run_task6(config)
 
         print("\nPipeline completed successfully!")
     except Exception as e:

@@ -31,8 +31,8 @@ def train_sam(config):
     train_masks = []
 
     # Simple combine logic for demonstration
-    # Limit samples to avoid RAM exhaustion on CPU (no CUDA)
-    n_samples = min(len(train_xr), 10)
+    # Use all available samples per modality
+    n_samples = min(len(train_xr), 20)
     print(f"Loading {n_samples} samples per modality...", flush=True)
     for i in range(n_samples):
         img, mask = train_xr[i]
@@ -64,7 +64,7 @@ def train_sam(config):
     trainer = SAMTrainer(sam, config)
 
     # 4. Start Training
-    epochs = 3  # Reduced for CPU-only execution speed
+    epochs = 5  # Full training run
     trainer.fit(train_loader, val_loader, epochs=epochs)
 
     print(f"Training complete. Best model saved to {config['paths']['output_dir']}/best_sam_medical.pth")
