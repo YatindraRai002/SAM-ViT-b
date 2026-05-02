@@ -1,0 +1,29 @@
+# Model checkpoints (too large for GitHub — 375MB+)
+*.pth
+*.pt
+*.ckpt
+
+# Dataset (large binary files — not versioned)
+archive (1)/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Output artifacts (generated — not source code)
+outputs/
+
+# Virtual environments
+venv/
+.env/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

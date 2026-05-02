@@ -1,0 +1,37 @@
+project:
+  name: "sam_medical_analysis"
+  version: "1.0.0"
+
+paths:
+  data_dir: "archive (1)"
+  output_dir: "outputs"
+  figures_dir: "outputs/figures"
+  metrics_dir: "outputs/metrics"
+  embeddings_dir: "outputs/embeddings"
+  sam_checkpoint: "sam_vit_b_01ec64.pth"
+
+sam:
+  model_type: "vit_b"
+  image_size: 1024
+  patch_size: 16
+  embed_dim: 768
+
+analysis:
+  layers: [0, 4, 8, 9, 10, 11]
+  extraction_layers: [8, 9, 10, 11]
+  ablation_layer: 10
+  ablation_head: 0  # placeholder for 'head k'
+  num_samples: 20
+  tsne:
+    perplexity: 15
+    n_iter: 1000
+  pca:
+    n_components: 50
+
+datasets:
+  nih_cxr:
+    url: "https://openi.nlm.nih.gov/imgs/collections/NLMCXR_png.tgz"
+    num_samples: 30
+  msd_liver:
+    # URL placeholder as MSD is usually via Google Drive / Kaggle
+    num_samples: 30
